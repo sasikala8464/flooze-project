@@ -1,26 +1,121 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f6f8fc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Layout */
+.layout {
+  display: flex;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* SIDEBAR */
+.sidebar {
+  width: 230px;
+  background: #1d4ed8;
+  color: #fff;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  transition: 0.3s;
+}
+
+.sidebar nav a {
+  color: #fff;
+  display: block;
+  margin: 15px 0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+/* MOBILE SIDEBAR */
+.menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+
+  .sidebar.open {
+    width: 200px;
+  }
+
+  .menu-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #1d4ed8;
+    color: white;
+    border: none;
+    padding: 8px;
+    font-size: 22px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* CONTENT */
+.content {
+  margin-left: 230px;
+  padding: 20px;
+  width: 100%;
 }
+
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* NAVBAR */
+.navbar {
+  background: white;
+  padding: 15px;
+  box-shadow: 0 0 5px #dcdcdc;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 5px #ddd;
+}
+
+/* PRODUCT CARD */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #ddd;
+  text-align: center;
+}
+
+.product-card button {
+  background: #1d4ed8;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+}
+
+
+
+
+
